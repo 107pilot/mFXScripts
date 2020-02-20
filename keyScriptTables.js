@@ -1,42 +1,39 @@
 let record = $("#foo").text();
 let res = JSON.parse(record);
 $("#foo").hide();
-$("#example-table").tabulator({
-  height:"311px",
-  layout:"fitColumns",
-  data: res,
+var table = new Tabulator("#example-table2", {
+    height:"311px",
+    data: res,
   columns: [
     { title: "USER ID", field: "userID" },
-    { title: "NAME", field: "name"},
+    { title: "NAME", field: "name" },
     { title: "CARD-ID", field: "cardID" },
-    { title: "STATUS", field: "status"}
-  ]
+    { title: "STATUS", field: "status" }
+  ],
 });
 
-//trigger download of data.csv file
-$("#download-csv").click(function(){
-    table.download("csv", "data.csv");
+$("#download-csv").click(function() {
+  $("#foo").hide();
+  table.download("csv", "data.csv");
 });
 
-//trigger download of data.json file
-$("#download-json").click(function(){
-    table.download("json", "data.json");
+$("#download-json").click(function() {
+  $("#example-table").download("json", "data.json");
 });
 
-//trigger download of data.xlsx file
-$("#download-xlsx").click(function(){
-    table.download("xlsx", "data.xlsx", {sheetName:"My Data"});
+$("#download-xlsx").click(function() {
+  $("#example-table").download("xlsx", "data.xlsx");
 });
 
-//trigger download of data.pdf file
-$("#download-pdf").click(function(){
-    table.download("pdf", "data.pdf", {
-        orientation:"portrait", //set page orientation to portrait
-        title:"Example Report", //add title to report
+$("#download-pdf").click(function() {
+  $("#example-table").download("pdf", "data.pdf", {
+    orientation: "portrait",
+    title: "Dynamics Quotation Report"
+  });
+
+  $("#download-html").click(function() {
+    $("#example-table").download("html", "data.html", {
+      style: true
     });
-});
-
-//trigger download of data.html file
-$("#download-html").click(function(){
-    table.download("html", "data.html", {style:true});
+  });
 });
