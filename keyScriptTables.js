@@ -3,7 +3,6 @@ let res = JSON.parse(record);
 $("#foo").hide();
 $("#example-table").tabulator({
   layout:"fitColumns",
-  responsiveLayout:"hide",
   data: res,
   columns: [
     { title: "USER ID", field: "userID" },
