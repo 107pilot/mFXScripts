@@ -2,6 +2,7 @@ let record = $("#foo").text();
 let res = JSON.parse(record);
 $("#foo").hide();
 $("#example-table").tabulator({
+  height:"311px",
   layout:"fitColumns",
   data: res,
   columns: [
