@@ -1,7 +1,7 @@
 let record = $("#foo").text();
 let res = JSON.parse(record);
 $("#foo").hide();
-var table = new Tabulator("#example-table2", {
+var table = new Tabulator("#example-table", {
     height:"311px",
     data: res,
   columns: [
