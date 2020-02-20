@@ -1,9 +1,12 @@
-$(function() {
-var ul = document.getElementById("foo");
-var items = ul.getElementsByTagName("li");
-for (var i = 0; i < items.length; ++i) {
-  console.log(items);
-}
-
-$("#example-table").tabulator("setData", items);
+let record = $("#foo").text();
+let res = JSON.parse(record);
+$("#foo").hide();
+$("#example-table").tabulator({
+  data: res,
+  columns: [
+    { title: "USER ID", field: "userID" },
+    { title: "NAME", field: "name"},
+    { title: "CARD-ID", field: "cardID" },
+    { title: "STATUS", field: "status"}
+  ]
 });
